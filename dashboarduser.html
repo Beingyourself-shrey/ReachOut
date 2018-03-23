@@ -29,6 +29,86 @@
       }
       .row.content {height: auto;} 
     }
+    .ngo
+    {
+    	text-align: center;
+    	font-weight: 200;
+    	font-family: arial;
+    	letter-spacing: 1px;
+
+    }
+
+
+    html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.column {
+	margin-left: 25%;
+  float: center;
+  width: 40%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+@media screen and (max-width: 650px) {
+  .column {
+    width: 100%;
+    display: block;
+  }
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+}
+
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+  overflow:hidden;
+}
+
+.title {
+  color:#9EA19E;
+  font-family: arial;
+  letter-spacing: 1px;
+
+}
+.ngoname{
+  color:#0E3260;
+  margin-left:-20; 
+
+}
+
+    .container{
+    	width: 70% !important;
+    }
+    .button {
+    	padding:10px;
+  border: none;
+  outline: 0;
+  display: inline-block;
+  width:100%;
+  color: white;
+  background-color: #244D83;
+  text-align: center;
+  cursor: pointer;
+
+}
+#bigs
+{
+	font-weight: 700px;
+	font-size: 20px;
+}
+
+.button:hover {
+  background-color: #555;
+}
   </style>
 </head>
 <body>
@@ -37,20 +117,45 @@
   <div class="row content">
     <div class="col-sm-3 sidenav">
       <h4>Ngo Name</h4>
-      <ul class="nav nav-pills nav-stacked">
+      <ul class="nav nav-pills nav-stacked" id="bigs">
         <li><a href="dashboarduser.html">Home</a></li>
         <li><a href="dashboard_user_newpage.html">Contributions</a></li>
         <li><a href="dashboard_user_newpage.html">Issue</a></li>
         <li><a href="dashboard_user_newpage.html">Join</a></li>
         <li><a href="dashboard_user_newpage.html">Others</a></li>
-        
+
       </ul><br>
  </div>
 
 	  <div class="col-sm-9">
+	  	<ul class="nav navbar-nav navbar-right">
+            <li><a data-toggle="collapse" data-target=".navbar-collapse" href="lo_sgup.php" style="font-size:20px;"><bold>Logout</bold></a></li>                
+        </ul>
       <hr>
+      <hr>
+      <h1 class="ngo">Your Profile</h1>
+      <hr>
+      <br>
+      <div class="contents">
+      	 <div class="column">
+          <div class="card">
+            <div class="container">
+              <div class="ngoname"> <h3>Ngo Name:</h3></div>
+              <br>
+                <p class="title"> <h3>Ngo Username:<h3></p>
+                	<br>
+                <p class="title"><h3>somerandom@gmail.com</h3></p>
+                <br>
+                <p class="title"><h3> Some Location</h3></p>
+                <br>
+                <p><button class="button updatbtn">Update</button></p>
+                <br>
+                <br>
+              </div>
+           </div>
+       </div>
       
-</div>
-</div>
+      </div>
+
 </body>
 </html>

@@ -8,6 +8,10 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <style>
+  ul
+  {
+  	list-style-type: none;
+  }
     .row.content {height: 1500px}
     
 
@@ -29,6 +33,39 @@
       }
       .row.content {height: auto;} 
     }
+  .opt
+    {
+    	font-family: "Times New Roman", Times, serif;
+    	font-size: 20px;
+    }
+
+#recent
+{
+	text-align: center;
+}
+
+
+    .button1
+    {
+    border-radius: 12px;
+    background-color: #cccccc; /* Green */
+    border: none;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    }
+    #bigs
+{
+	font-weight: 700px;
+	font-size: 20px;
+}
+
+
   </style>
 </head>
 <body>
@@ -37,7 +74,7 @@
   <div class="row content">
     <div class="col-sm-3 sidenav">
       <h4>Ngo Name</h4>
-      <ul class="nav nav-pills nav-stacked">
+      <ul class="nav nav-pills nav-stacked" id="bigs">
         <li><a href="dashboarduser.html">Home</a></li>
         <li><a href="#dashboard_user_newpage.html">Contributions</a></li>
         <li><a href="dashboard_user_newpage.html">Issue</a></li>
@@ -47,30 +84,24 @@
  </div>
 
 	  <div class="col-sm-9">
-      <h4><small>RECENT POSTS</small></h4>
+	  	<hr>
+		<ul class="nav navbar-nav navbar-right">
+            <li><a data-toggle="collapse" data-target=".navbar-collapse" href="lo_sgup.php" style="font-size:20px;"><bold>Logout</bold></a></li>                
+        </ul>
+      <h4 id="recent">RECENT POSTS</h4>
       <hr><hr>
 
 
-      <div>
+      <div class="opt">
       	<ul>
       		<li>Name:</li>
-      		<li>Mail Id</li>
-      		<li>Phone Number</li>
-      		<li>Description</li>
-      		<button>Approve</button>
+      		<li>Mail Id:</li>
+      		<li>Phone Number:</li>
+      		<li>Description:</li>
+      		<button class="button button1">Approve</button>
       	</ul>
       	<hr>
       </div>
-
-
-
-
-
-
-
-
-
-
 
 
       <div></div>
