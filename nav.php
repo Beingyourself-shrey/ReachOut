@@ -1,90 +1,69 @@
-<!doctype html>
-<head>
+<?php
+ob_start();
+if(!isset($_SESSION))
+session_start();
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+?>
 
 
 
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span> 
+      </button>
+      <a class="navbar-brand" href="#">ReachOut</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        
+        <li><a href="index.php">Home</a></li>
+        <li><a href="index.php#cont">Contribution</a></li> 
+        <li><a href="index.php#issue">Issue</a></li> 
+        <li><a href="index.php#join">Join</a></li> 
+        <?php 
+        if(isset($_SESSION['user_username']))
+         {  ?>
+        <li><a href="<?php echo 'dashboarduser.php';  ?>"><?php echo $_SESSION['user_username'];  ?></a></li> 
+         <?php }?>
+          <?php 
+        if(isset($_SESSION['ngo_username']))
+         {  ?>
+        <li><a href="<?php echo 'dashboardngo.php';  ?>"><?php echo $_SESSION['ngo_username'];  ?></a></li> 
+         <?php }?>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      <?php
+      if(!isset($_SESSION['user_username']) && !isset($_SESSION['ngo_username']))
+        {?>
+        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span>&nbsp;Sign Up <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="signupuser.php">User</a></li>
+          <li><a href="signupngo.php">Trust</a></li>
+          
+        </ul>
+      </li>
+       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-log-in"></span>&nbsp;Log in <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="userlogin.php">User</a></li>
+          <li><a href="login.php">Trust</a></li>
+          
+        </ul>
+      </li>
+       <?php } 
+    else
+        {?>
+          <li><a href="logout.php">Logout</a></li>
+       <?php }?>
+       
+      
+      </ul>
+    </div>
+  </div>
+</nav>
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script>
-            $(document).ready(function(){
-            
-                $("a").on('click', function(event) {
-                    if (this.hash !== "") {
-                    event.preventDefault();
-                    var hash = this.hash;
-                    $('html, body').animate({scrollTop: $(hash).offset().top}, 800, function(){window.location.hash = hash;});
-                } 
-            });
-            });
-        </script>
-
-        <style type="text/css">
-        *{
-
-        }
-            body { padding-top: 50.5px; }
-
-            .jumbotron {
-                color: #2c3e50;
-                background: #ecf0f1;
-
-            }
-            .navbar-inverse {
-                background: #2c3e50;
-                color: white;
-            }
-            .navbar-inverse .navbar-brand, .navbar-inverse a{
-                color:white;
-            }
-            .navbar-inverse .navbar-nav>li>a {
-                color: white;
-            }
-        </style>
-        <script src="js/jquery.ui.totop.js"></script>
-
-
-
-</head>
-<body>
-
-<div class="back" >
-            <nav class="navbar navbar-inverse navbar-fixed-top">
-                <div class="container">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-nav-demo" aria-expanded="false">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                        <a href="#" class="navbar-brand"><span class="glyphicon glyphicon-picture"></span> <EM><B>FBC<EM><B></a>
-                    </div>
-                    <div class="collapse navbar-collapse" id="bs-nav-demo">
-                        <ul class="nav navbar-nav">
-                        <li><a data-toggle="collapse" data-target=".navbar-collapse" href="#hero">Home</a></li>
-                        <li><a data-toggle="collapse" data-target=".navbar-collapse" href="#services">Services</a></li>
-                        <li><a data-toggle="collapse" data-target=".navbar-collapse" href="#faq">FAQs</a></li>
-                        <li><a data-toggle="collapse" data-target=".navbar-collapse" href="#aboutus">About Us</a></li>
-                    </ul>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a data-toggle="collapse" data-target=".navbar-collapse" href="lo_sgup.php">Sign Up/Login</a></li>
-                        
-                    </ul>
-                    </div>
-                </div>
-            
-
-</body>
-</html>

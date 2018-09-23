@@ -1,16 +1,11 @@
-<!--om-->
 <?php
 ob_start();
-if(!isset($_SESSION)) 
-    { 
-        session_start(); 
-    } 
-
+session_start();
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-	<title>ReachOut</title>
+	<title>userlogin</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
 <!-- jQuery library -->
@@ -20,12 +15,13 @@ if(!isset($_SESSION))
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+</head>
 <style type="text/css">
-  .upper{
+	.upper{
     margin-top: 150px;
-  }
+	}
 /*nav */
-  body { padding-top: 50.5px; }
+	body { padding-top: 50.5px; }
 
             .jumbotron {
                 color: #2c3e50;
@@ -43,7 +39,7 @@ if(!isset($_SESSION))
                 color: #fff;
             }
             .navbar{
-              z-index: 9999;
+            	z-index: 9999;
                position: absolute;
                top: 0px;
                border-radius: 0px !important;
@@ -51,31 +47,30 @@ if(!isset($_SESSION))
                position: fixed !important;
             }
             li:hover{
-              background-color: #fff;
-              color: black !important;
+            	background-color: #fff;
+            	color: black !important;
             }
             li>a:hover{
-              color:black !important;
+            	color:black !important;
             }
           
             .active{
-              color:white;
+            	color:white;
             }
             .navbar-inverse .navbar-nav>.open>a:hover{
-              color:#fff !important;
+            	color:#fff !important;
             }
             /*  other than nav  */
 </style>
-</head>
 <body>
-  <?php
-   $err="";
+<?php
+
+	 $err="";
   include 'connect.php';
-  if(isset($_POST['submit']))
+  if(isset($_POST['user_submit']))
   {
-   
   extract($_POST);
-  $sql="select * from ngo where username='$user' ";
+  $sql="select * from user where user_username='$user_username' ";
   if(!$a=$conn->query($sql))
     die($conn->error);
   if($a->num_rows==0)
@@ -83,44 +78,41 @@ if(!isset($_SESSION))
   else{
 
     $row=$a->fetch_assoc();
-    $pass=$row['password'];
-    if($pass!=$pwd)
+    $pass=$row['user_password'];
+    if($pass!=$user_password)
       $err="Invalid Password";
 
-  }
+     }
    if($err=="")
    {
-    $_SESSION['ngo_username']=$user;
-    $_SESSION['ngo_password']=$pwd;
-    $_SESSION['ngo_name']=$row['name'];
-    $_SESSION['ngo_location']=$row['location'];
-    $_SESSION['ngo_mail']=$row['mail'];
-    $_SESSION['ngo_id']=$row['id'];
-    header('Location:dashboardngo.php');
- 
+    $_SESSION['user_username']=$user_username;
+    $_SESSION['user_password']=$user_password;
+    $_SESSION['user_name']=$row['name'];
+    $_SESSION['user_location']=$row['location'];
+    $_SESSION['user_id']=$row['user_id'];
+    $_SESSION['user_email']=$row['email'];
+    $_SESSION['user_credit']=$row['credit'];
     
-    
+    header('Location:dashboarduser.php');
+
    }
   }
-  ?>
-
-
-
+?>
 
 <div class="container upper">
     <div class="row">
-        <h1 style="text-align: center;">Trust Login</h1>
-          <center><div style="color:red;"><?php  echo $err;  ?></div></center>
+        <h1 style="text-align: center">User Login</h1>
+        <center><div style="color:red;"><?php  echo $err;  ?></div></center>
         <div style="max-width: 320px; margin: 25px auto;">
-            <form action="login.php" method="post">
+            <form action="userlogin.php" method="post">
                 <div class="form-group">
-                    <input class="form-control" type="text" name="user" placeholder="username" required>
+                    <input class="form-control" type="text" name="user_username" placeholder="username" required>
                 </div>
                 <div class="form-group">
-                    <input class="form-control" type="password" name="pwd" placeholder="password" required>
+                    <input class="form-control" type="password" name="user_password" placeholder="password" required>
                 </div>
                 <div class="form-group">
-                    <button class="btn btn-lg btn-primary btn-block" type="submit" name="submit">Login</button>
+                    <button class="btn btn-lg btn-primary btn-block" type="submit" name="user_submit">Login</button>
                 </div>
             </form>
             
