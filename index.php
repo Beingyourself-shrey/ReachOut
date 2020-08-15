@@ -30,7 +30,10 @@
 
                 <!--below background-->
                 <div class="container-fluid belowlandpage1" id="cont">
+<<<<<<< HEAD
                 <br><br> <br><br> 
+=======
+>>>>>>> 087f272031c9ef1b7dbba5060c532744410b4eec
                     <div class="col-sm-6 img-full">
                         <img src="photos/contribute2.jpg" alt="error loading the image" class="img-left-right">
                     </div>

@@ -87,7 +87,11 @@ if(!isset($_SESSION['user_username']))
             .sidenav {
             background-color: #111;
             height: 690px !important;
+<<<<<<< HEAD
             
+=======
+            position: fixed;
+>>>>>>> 087f272031c9ef1b7dbba5060c532744410b4eec
             }
             footer {
             background-color: #555;
